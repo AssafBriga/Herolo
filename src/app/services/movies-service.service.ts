@@ -9,7 +9,7 @@ export class MoviesService {
   omdbApikey:string = "aa39bf52";
 
 
-  uri:string = "http://www.omdbapi.com/?apikey="+this.omdbApikey;
+  uri:string = "https://www.omdbapi.com/?apikey="+this.omdbApikey;
 
 
 

@@ -19,16 +19,28 @@ export class MoviesListComponent implements OnInit {
   moviesTitlesArray:string[] = ['The Lion King','The Shawshank Redemption','Inception','Jurassic Park','The Lord of the Rings'];
   movieIdToDelete:number;
   movieToDelete:Movie;
+  errorMessage:string;
 
   openAddModal():void{
     this.movieModal = true;
   }
 
   addNewMovie(data:any):void{
-    let movieItem:Movie =  new Movie(data['title'],data['year'],data['runtime'],data['genre'],data['director']);
-        this.moviesList.push(movieItem);
-        this.movieModal = null;
+    if(this.checkIfMovieTitleExist(data)){    
+      this.errorMessage = "Movie title already exist. Do you want to try again?"
+    }
+    else{
+      this.errorMessage = null
+      let movieItem:Movie =  new Movie(data['title'],data['year'],data['runtime'],data['genre'],data['director']);
+      this.moviesList.push(movieItem);
+      this.movieModal = null;
+    }
+   
 
+  }
+
+  closeError(){
+    this.errorMessage = null
   }
 
 
@@ -42,20 +54,39 @@ export class MoviesListComponent implements OnInit {
     this.movieModal = null;
   }
   editMovie(movie:Movie){
-    console.log(movie)
-    for(let i = 0; this.moviesList.length>i; i++){
-      console.log(movie)
-      if (this.moviesList[i].id==movie.id){
-        console.log(movie)
-        this.moviesList[i] = movie;
-        this.movieToEdit = null;
-        this.movieModal = null;
-        break;
-      }
-      continue;
+    if(this.checkIfMovieTitleExist(movie)){
+      this.errorMessage = "Movie title already exist. Do you want to try again?"
     }
-
+    else{
+      for(let i = 0; this.moviesList.length>i; i++){
+        if (this.moviesList[i].id==movie.id){
+          this.moviesList[i] = movie;
+          this.movieToEdit = null;
+          this.movieModal = null;
+          break;
+        }
+        continue;
+      }
+    }
   }
+
+
+checkIfMovieTitleExist(movie : Movie) {
+    for (let i = 0; this.moviesList.length > i; i++) {
+        if(i+1==movie.id){
+          continue;
+        }
+        else{
+          if (this.moviesList[i].title == movie.title) {
+            return true;
+        } else {
+            continue;
+        }
+        }
+        
+    }
+    return false;
+}
 
 
 
@@ -69,12 +100,10 @@ export class MoviesListComponent implements OnInit {
   }
 
   deleteCanceled():void{
-    console.log("delete canceled")
     this.popupTitle = null;
   }
 
   onDeleteClick(movie:Movie):void{
-    console.log(movie)
     this.movieIdToDelete = movie.id;
     this.movieToDelete = movie;
     this.popupTitle = "Are you sure that you want to delete ";
@@ -88,9 +117,7 @@ export class MoviesListComponent implements OnInit {
         let movieItem:Movie =  new Movie(data['Title'],data['Year'],data['Runtime'],data['Genre'],data['Director']);
         this.moviesList.push(movieItem);
         
-      }) 
-      
+      })   
     });
-    console.log(this.moviesList)
   }
 }

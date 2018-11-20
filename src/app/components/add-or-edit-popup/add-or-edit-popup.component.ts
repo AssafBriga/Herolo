@@ -11,6 +11,7 @@ export class AddOrEditPopupComponent implements OnInit {
   
   
   @Input()movieToEdit:Movie;
+  @Input()errorMessage:string;
   @Input()moviesArr:Movie[];
   newMovie:Movie;
   editedMovie:Movie;
@@ -19,6 +20,7 @@ export class AddOrEditPopupComponent implements OnInit {
 
 
   @Output()formCanceled:EventEmitter<string> = new EventEmitter<string>();
+  @Output()popupCanceled:EventEmitter<string> = new EventEmitter<string>();
   @Output()formNewData:EventEmitter<Movie> = new EventEmitter<Movie>();
   @Output()formEditedData:EventEmitter<Movie> = new EventEmitter<Movie>();
 
@@ -47,7 +49,6 @@ export class AddOrEditPopupComponent implements OnInit {
 
 
   onSubmit(form){
-    console.log(form)
     if(this.movieToEdit){
       this.editedMovie = form;
       this.editedMovie.id = this.movieToEdit.id;
@@ -92,6 +93,15 @@ export class AddOrEditPopupComponent implements OnInit {
         'genre': this.genre,
         'director': this.director,  
       })
+  }
+
+  closePopup(){
+    this.popupCanceled.emit();
+  }
+
+  closePopupAndForm(){
+    this.popupCanceled.emit();
+    this.formCanceled.emit();
   }
 
   ngOnInit() {

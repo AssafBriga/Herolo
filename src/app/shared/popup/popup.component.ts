@@ -11,28 +11,27 @@ export class PopupComponent implements OnInit {
 
   @Input() title:string;
   @Input() itemToDelete:Movie;
-  itemTitle:string;
   
 
-  @Output()deleteApproved:EventEmitter<string> = 
+  @Output()approved:EventEmitter<string> = 
   new EventEmitter<string>()
 
 
-  @Output()deleteCanceled:EventEmitter<string> = 
+  @Output()canceled:EventEmitter<string> = 
   new EventEmitter<string>()
 
   
   onApproved():void{
-    this.deleteApproved.emit()
+    this.approved.emit()
   }
   onCancel():void{
-    this.deleteCanceled.emit()
+    this.canceled.emit()
   }
 
   constructor(@Inject(DOCUMENT) private document: Document) { }
 
   ngOnInit() {
-    this.itemTitle = this.itemToDelete.title;
+    if(this.itemToDelete){this.title = this.title+ " "+ this.itemToDelete.title+"?";}
     // this.document.body.classList.add('blur');
   }
 

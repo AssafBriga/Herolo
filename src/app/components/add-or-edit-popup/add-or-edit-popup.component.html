@@ -44,3 +44,4 @@
         </div>
     </div>
 </div>
+<app-popup *ngIf="errorMessage"  [title]="errorMessage" (approved)="closePopup()" (canceled)="closePopupAndForm()" ></app-popup>

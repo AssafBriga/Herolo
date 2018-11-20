@@ -1,31 +1,27 @@
-
-
-
-.movieItemContainer{
+.movieItemContainer {
     display: flex;
     width: 25vw;
     height: 100px;
     background-color: rgba(256, 256, 256, 1.0);
-    margin:1vw;
+    margin: 1vw;
     border: 2px solid #7637aa;
     border-radius: 10px;
     position: relative;
-    
 }
 
-@media  (max-width: 900px) {
+@media (max-width: 900px) {
     .movieItemContainer {
         width: 40vw;
     }
 }
 
-@media  (max-width: 500px) {
+@media (max-width: 500px) {
     .movieItemContainer {
         width: 90vw;
     }
 }
 
-.buttonsContainer{
+.buttonsContainer {
     display: none;
     flex-direction: row;
     position: absolute;
@@ -36,21 +32,18 @@
     background-color: rgba(0, 0, 0, 0.5);
     border-radius: 8px;
     z-index: 1;
-    
 }
 
-
-
-.movieItemContainer:hover .dataContainer{
+.movieItemContainer:hover .dataContainer {
     filter: blur(3px);
     -webkit-filter: blur(3px);
 }
-.movieItemContainer:hover .buttonsContainer{
+.movieItemContainer:hover .buttonsContainer {
     display: flex;
-    
 }
-.button{
-    flex:2;
+
+.button {
+    flex: 2;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -59,36 +52,33 @@
     cursor: pointer;
 }
 
-.button:hover{
+.button:hover {
     background-color: rgba(0, 0, 0, 0.4);
 }
 
-
-.dataContainer{
+.dataContainer {
     display: flex;
     flex-direction: column;
-    width:100%
-
+    width: 100%;
 }
 
-.titleContainer{
+.titleContainer {
     display: flex;
     justify-content: flex-start;
     align-items: center;
-    flex:2;
+    flex: 2;
     background-color: #7637aa;
     color: white;
     border-top-left-radius: 5px;
     border-top-right-radius: 5px;
-    padding:5px;
+    padding: 5px;
     font-weight: 400;
 }
 
-.restOfTheMovieDataContainer{
-    flex:3;
-    padding:5px;
-    color:#4f4f4f;
+.restOfTheMovieDataContainer {
+    flex: 3;
+    padding: 5px;
+    color: #4f4f4f;
     font-weight: 100;
-    font-size: 0.9em
-
+    font-size: 0.9em;
 }

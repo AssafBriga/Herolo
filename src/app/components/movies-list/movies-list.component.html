@@ -8,5 +8,5 @@
   <movies-item *ngFor="let movie of moviesList" [movieData]="movie" (delete)="onDeleteClick(movie)" (edit)="onEditClick(movie)"></movies-item>
 </div>
 
-<add-or-edit-popup *ngIf="movieModal" [moviesArr]="moviesList" [movieToEdit]="movieToEdit" (formCanceled)="cancelModal($event)" (formNewData)="addNewMovie($event)" (formEditedData)="editMovie($event)"></add-or-edit-popup>
-<app-popup *ngIf="popupTitle"  [title]="popupTitle" [itemToDelete]="movieToDelete" (deleteApproved)="deleteMovie($event)" (deleteCanceled)="deleteCanceled()" ></app-popup>
+<add-or-edit-popup *ngIf="movieModal" [errorMessage]="errorMessage" [moviesArr]="moviesList" [movieToEdit]="movieToEdit" (formCanceled)="cancelModal($event)" (popupCanceled)="closeError($event)" (formNewData)="addNewMovie($event)" (formEditedData)="editMovie($event)"></add-or-edit-popup>
+<app-popup *ngIf="popupTitle"  [title]="popupTitle" [itemToDelete]="movieToDelete" (approved)="deleteMovie($event)" (canceled)="deleteCanceled()" ></app-popup>
