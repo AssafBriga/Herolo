@@ -1,0 +1,13 @@
+#logo{
+    height: 60px;;
+}
+
+#header-container{
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    height: 80px;
+    width:100%;
+    background-color: white;
+    border-bottom: 2px solid #7637aa;
+}

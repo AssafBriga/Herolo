@@ -1,0 +1,139 @@
+#blackScreen{
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.6);
+    filter:blur(0px)
+}
+
+#popupContainer{ 
+    display: flex;
+    width: 100%;
+    height: 100%;
+    justify-content: center;
+    align-items: center;
+    filter:none !important;
+    
+}
+
+#popup{
+    background-color: white;
+    border: 2px solid #7637aa;
+    border-radius: 10px;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    width: 90%;
+    max-width: 400px;
+    max-height: 700px;
+    min-width: 280px;
+
+
+}
+
+
+
+
+
+
+form {
+    width: 90%;
+    max-width: 350px;
+    
+    max-height: 700px;
+}
+
+/* input::-webkit-input-placeholder{
+    color:red;
+} */
+
+.inputContainer {
+
+ 
+    height: 90px;
+}
+
+
+input[type=number],
+input[type=text] {
+    border: 0;
+    background-color: rgba(0, 0, 0, 0.1);
+    width: 100%;
+    height: 30px;
+    border-radius: 50px;
+    padding-left: 10px;
+    box-sizing: border-box;
+}
+
+label {
+    cursor: pointer;
+}
+
+input[type=text]:hover,input[type=number]:hover {
+    background-color: rgba(0, 0, 0, 0.3);
+}
+
+input[type=text]:focus, input[type=number]:focus{
+    outline: none;
+    border: 1px solid rgba(0, 0, 0, 0.5);
+}
+h2 {
+    color: rgba(0,0,0,.87);
+}
+h4 {
+    line-height: 0;
+    color: rgba(0,0,0,.87);
+}
+
+
+
+.errorMessage {
+    color: #dc3545;
+    font-size: 0.8em;
+}
+
+button {
+    width: 50px;
+    height: 50px;
+    background-color: rgba(0, 0, 0, 0.1);
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    margin:5px;
+    box-shadow: 1px 1px 2px 2px #999999;
+}
+
+button:focus{
+        outline: none;
+}
+
+button:hover{
+    box-shadow: 1px 1px 1px 1px #999999;
+}
+
+.buttonsContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.purpleBackground {
+    background-color: #7637aa;
+    color:white;
+}
+
+.purpleBackground:hover {
+    color:#f2f2f2;
+    background-color: #622d8e;
+    
+
+}
+
+
+.disabledClick:hover{
+    cursor: not-allowed;
+}

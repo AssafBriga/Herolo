@@ -1,0 +1,46 @@
+<div id="blackScreen">
+    <div id="popupContainer">
+        <div id="popup">
+            <div><h2>{{formTitle}}</h2></div>
+            <form [formGroup]="movieForm" (ngSubmit)="onSubmit(movieForm.value)" id="movieForm" novalidate>
+                <div class="inputContainer">
+                    <label for="title"><h4>Title</h4></label>
+                    <input type="text" placeholder="Title" id="title" formControlName="title" autofocus>
+                    <span class="errorMessage" *ngIf="movieForm.get('title').hasError('required')&&(movieForm.get('title').touched || movieForm.get('title').dirty)">*Title required</span>
+                    <span class="errorMessage" *ngIf="movieForm.get('title').hasError('checkIfTitleExist')&&(movieForm.get('title').touched || movieForm.get('title').dirty)">*Title already exist</span>
+                </div>
+                <div class="inputContainer">
+                    <label for="year"><h4>Year</h4></label>
+                    <input type="number" placeholder="Year" id="year" formControlName="year">
+                    <span class="errorMessage" *ngIf="movieForm.get('year').hasError('required')&&(movieForm.get('year').touched || movieForm.get('year').dirty)">*Year required</span>
+                </div>
+
+                <div class="inputContainer">
+                    <label for="runtime"><h4>Runtime</h4></label>
+                    <input type="text" placeholder="Runtime" id="runtime" formControlName="runtime">
+                    <span class="errorMessage" *ngIf="movieForm.get('runtime').hasError('required')&&(movieForm.get('runtime').touched || movieForm.get('runtime').dirty)">*Runtime required</span>
+                </div>
+
+
+                <div class="inputContainer">
+                    <label for="genre"><h4>Genre</h4></label>
+                    <input type="text" placeholder="Genre" id="genre" formControlName="genre">
+                    <span class="errorMessage" *ngIf="movieForm.get('genre').hasError('required')&&(movieForm.get('genre').touched || movieForm.get('genre').dirty)">*Genre required</span>
+                </div>
+
+
+                <div class="inputContainer">
+                    <label for="director"><h4>Director</h4></label>
+                    <input type="text" placeholder="Director" id="director" formControlName="director">
+                    <span class="errorMessage" *ngIf="movieForm.get('director').hasError('required')&&(movieForm.get('director').touched || movieForm.get('director').dirty)">*Director required</span>
+                </div>
+
+
+                <div class="inputContainer buttonsContainer">
+                  <button type="submit"[class.purpleBackground]="movieForm.valid" [class.disabledClick]="!movieForm.valid" [disabled]="!movieForm.valid">Save</button>
+                  <button type="button"(click)="cancelForm()">Cancel</button>
+                </div>
+              </form>
+        </div>
+    </div>
+</div>

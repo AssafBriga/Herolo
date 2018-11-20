@@ -1,0 +1,12 @@
+<div id="listNavbar">
+  <button (click)="openAddModal()" id="addMovieButton">+ Add Movie</button>
+</div>
+<div id="noDataContainer" *ngIf="moviesList.length == 0">
+    <h1>No Data To Display</h1>
+  </div>
+<div id="moviesListContainer" *ngIf="moviesList">
+  <movies-item *ngFor="let movie of moviesList" [movieData]="movie" (delete)="onDeleteClick(movie)" (edit)="onEditClick(movie)"></movies-item>
+</div>
+
+<add-or-edit-popup *ngIf="movieModal" [moviesArr]="moviesList" [movieToEdit]="movieToEdit" (formCanceled)="cancelModal($event)" (formNewData)="addNewMovie($event)" (formEditedData)="editMovie($event)"></add-or-edit-popup>
+<app-popup *ngIf="popupTitle"  [title]="popupTitle" [itemToDelete]="movieToDelete" (deleteApproved)="deleteMovie($event)" (deleteCanceled)="deleteCanceled()" ></app-popup>

@@ -1,0 +1,45 @@
+#listNavbar{
+    height: 25px;
+    border-bottom: 2px dashed #7637aa;
+    display:flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+#addMovieButton{
+    background-color: #7637aa;
+    border-radius: 5px;
+    border:none;
+    color: white;
+    margin-left:5px;
+    box-shadow: 1px 1px 2px 2px #999999;
+    cursor: pointer;
+}
+
+#addMovieButton:hover{
+    background-color: #622d8e;
+    color:#f2f2f2;
+    box-shadow: 1px 1px 1px 1px #999999;
+
+}
+
+
+#noDataContainer{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+
+h1{
+    text-align: center
+}
+
+
+#moviesListContainer{
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%; 
+    align-items: center;
+    justify-content: center;
+}

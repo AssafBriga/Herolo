@@ -1,0 +1,13 @@
+<div id="blackScreen">
+    <div id="popupContainer">
+        <div id="popup">
+            <div id="titleContainer">
+                {{title}}{{itemTitle | cleanTitle | camelCase}}?
+            </div>
+            <div id="buttonsContainer">
+                <button (click)="onApproved()">Yes</button>
+                <button (click)="onCancel()">No</button>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,15 @@
+<div class="movieItemContainer">
+    <div class="buttonsContainer">
+        <div class="button" (click)="editItem($event)">Edit</div>
+        <div class="button" (click)="deleteItem($event)">Delete</div>
+    </div>
+    <div class="dataContainer">
+        <div class="titleContainer">
+            {{movieData.title | cleanTitle | camelCase}}
+        </div>
+        <div class="restOfTheMovieDataContainer">
+            {{movieData.year}} \ {{movieData.director}}<br>
+            {{movieData.genre}}
+        </div>
+    </div>
+</div>
